@@ -59,23 +59,17 @@ int SetLEDTrigger(const int LedIndex, const char * TriggerType) {
 int InitializeLEDs() {
     int c;
 
-    for (c = 0;
-    c < 3;
-    c++) {
+    for (c = 0; c < 3; c++) {
         SetLEDTrigger(c, "none");
     }
 
-    for (c = 0;
-    c < 4;
-    c++) {
+    for (c = 0; c < 4; c++) {
         SetLEDBrightness(c, 1);
         Delay(100);
         SetLEDBrightness(c, 0);
     }
 
-    for (c = 2;
-    c > -1;
-    c--) {
+    for (c = 2; c > -1; c--) {
         SetLEDBrightness(c, 1);
         Delay(100);
         SetLEDBrightness(c, 0);
@@ -92,9 +86,7 @@ int main(int argc, char ** argv) {
 
     while (true) {
         if (getloadavg(Load, 1) != -1) {
-            for ( c = 0;
-            c < 4;
-            c++ ) {
+            for (c = 0; c < 4; c++) {
                 if (Load[0] > 0.24+0.25*c) {
                     LEDState[c] = 1;
                 }
